@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VISION SERVIÇOS | Peças Automotivas</title>
+<style>
+:root{--navy:#101d35;--blue:#1769aa;--gold:#f3b633;--bg:#f4f6f9;--ink:#182235;--muted:#657286}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink)}
+header{background:var(--navy);color:#fff;padding:17px max(5%,calc((100% - 1180px)/2));display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.brand{font-size:23px;font-weight:900;letter-spacing:.5px}.brand span{color:var(--gold)}.tag{font-size:12px;color:#d5dfed;margin-top:4px}
+nav{display:flex;gap:18px;flex-wrap:wrap}nav a{color:#fff;text-decoration:none;font-size:14px}
+.hero{background:linear-gradient(110deg,#101d35 0%,#164d7b 70%,#1769aa 100%);color:white;padding:55px 5%;text-align:left}
+.hero-inner{max-width:1180px;margin:auto}.hero h1{font-size:clamp(30px,5vw,48px);margin:0 0 12px}.hero p{font-size:17px;max-width:650px;line-height:1.5;color:#e4edf7}.hero strong{color:var(--gold)}
+.wrap{max-width:1180px;margin:28px auto;padding:0 18px}.toolbar{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px;background:#fff;padding:16px;border-radius:14px;box-shadow:0 4px 18px #10203a0d}
+input,select{width:100%;padding:13px;border:1px solid #d6dce5;border-radius:9px;font-size:14px;background:white}
+h2{font-size:24px;margin:30px 0 16px}.categories{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.cat{background:#fff;padding:17px;border-radius:12px;border:1px solid #e7ebf0;font-weight:bold}.cat small{display:block;color:var(--muted);font-weight:normal;margin-top:5px}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.product{background:#fff;border:1px solid #e7ebf0;border-radius:14px;overflow:hidden}.photo{height:145px;background:#e9eef5;display:grid;place-items:center;color:#657286;font-size:42px}.pbody{padding:16px}.pbody h3{margin:0 0 8px;font-size:17px}.pbody p{color:var(--muted);font-size:13px;line-height:1.45;min-height:38px}.pill{display:inline-block;background:#fff4d8;color:#79540a;padding:5px 8px;border-radius:20px;font-size:11px;font-weight:bold}.price{font-weight:800;font-size:19px;margin:12px 0;color:var(--blue)}button{border:0;border-radius:9px;padding:12px 15px;background:var(--blue);color:#fff;font-weight:bold;cursor:pointer}button:hover{filter:brightness(.93)}.secondary{background:var(--navy)}.empty{background:white;border:1px dashed #c8d1dd;border-radius:14px;padding:28px;text-align:center;color:var(--muted);grid-column:1/-1}
+.info{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.info div{background:white;padding:18px;border-radius:12px}.info b{display:block;margin-bottom:6px}
+footer{margin-top:45px;background:var(--navy);color:#d9e2ef;padding:28px 5%;text-align:center;font-size:13px;line-height:1.7}
+.vehicle-search{background:#fff;border:1px solid #e7ebf0;border-radius:14px;padding:18px;margin-top:22px}.vehicle-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0}.cartbar{position:sticky;bottom:0;background:#fff;border-top:1px solid #dce2ea;padding:12px 5%;display:flex;justify-content:center;align-items:center;gap:16px;box-shadow:0 -4px 15px #10203a0c}
+@media(max-width:760px){.vehicle-grid{grid-template-columns:1fr 1fr}.toolbar{grid-template-columns:1fr}.categories{grid-template-columns:repeat(2,1fr)}.products{grid-template-columns:1fr 1fr}.info{grid-template-columns:1fr}header{padding:15px 5%}}
+@media(max-width:480px){.vehicle-grid{grid-template-columns:1fr}.products{grid-template-columns:1fr}.hero{padding:38px 6%}.cartbar{justify-content:space-between}}
+</style>
+</head>
+<body>
+<header><div><div class="brand">VISION <span>SERVIÇOS</span></div><div class="tag">PEÇAS AUTOMOTIVAS • NOVAS E USADAS</div></div><nav><a href="#categorias">Categorias</a><a href="#catalogo">Peças</a><a href="#contato">Atendimento</a></nav></header>
+<section class="hero"><div class="hero-inner"><h1>Encontre a peça certa<br><strong>para seu carro.</strong></h1><p>Peças automotivas novas e usadas. Consulte disponibilidade, peça seu orçamento e escolha entre entrega ou retirada.</p><button onclick="document.querySelector('#catalogo').scrollIntoView({behavior:'smooth'})">VER CATÁLOGO</button></div></section>
+<main class="wrap">
+<section class="toolbar" aria-label="Buscar peças">
+<input id="search" placeholder="Buscar peça, marca ou código..." oninput="render()">
+<select id="condition" onchange="render()"><option value="">Novas e usadas</option><option>Nova</option><option>Usada</option></select>
+<select id="category" onchange="render()"><option value="">Todas as categorias</option><option>Motor</option><option>Freios</option><option>Suspensão</option><option>Elétrica</option><option>Filtros</option><option>Lataria</option><option>Iluminação</option><option>Acessórios</option></select>
+</section>
+<section id="categorias"><h2>Compre por categoria</h2><div class="categories">
+<div class="cat">⚙️ Motor<small>Componentes e acessórios</small></div><div class="cat">🛑 Freios<small>Discos, pastilhas e kits</small></div><div class="cat">🔧 Suspensão<small>Amortecedores e peças</small></div><div class="cat">🔋 Elétrica<small>Baterias e componentes</small></div><div class="cat">🧰 Filtros<small>Óleo, ar e combustível</small></div><div class="cat">🚘 Lataria<small>Peças externas</small></div><div class="cat">💡 Iluminação<small>Faróis e lanternas</small></div><div class="cat">✨ Acessórios<small>Itens para seu veículo</small></div>
+</div></section>
+<section class="vehicle-search" id="buscar-veiculo">
+<h2 style="margin:0">Encontre peças para seu veículo</h2>
+<p style="color:#657286;margin:8px 0">Informe marca, modelo e ano. Nossa equipe confirma a compatibilidade antes da compra.</p>
+<div class="vehicle-grid">
+<select id="make" onchange="updateModels()"><option value="">Marca do carro</option><option>Fiat</option><option>Chevrolet</option><option>Volkswagen</option><option>Ford</option><option>Toyota</option><option>Honda</option><option>Hyundai</option><option>Renault</option><option>Peugeot</option><option>Citroën</option><option>Nissan</option><option>Jeep</option><option>Mitsubishi</option><option>Outra</option></select>
+<select id="model"><option value="">Modelo</option></select>
+<select id="year"><option value="">Ano</option></select>
+<button onclick="askVehicle()">Consultar peças</button>
+</div>
+<small style="color:#657286">A equipe confirma a aplicação da peça antes da compra.</small>
+</section>
+<section id="catalogo"><h2>Catálogo de peças</h2><div class="products" id="products"></div></section>
+<h2>Como comprar</h2><div class="info"><div><b>1. Encontre a peça</b>Pesquise pelo nome ou escolha uma categoria.</div><div><b>2. Informe seu veículo</b>Envie modelo, ano e versão para confirmar a aplicação.</div><div><b>3. Receba ou retire</b>Combine entrega ou retirada com nossa equipe.</div></div>
+</main>
+<div class="cartbar"><span><b id="count">0</b> item(ns) no orçamento</span><button onclick="checkout()">Enviar orçamento pelo WhatsApp</button></div>
+<footer id="contato"><b>VISION SERVIÇOS — PEÇAS AUTOMOTIVAS</b><br>Peças novas e usadas para carros<br>Atendimento: substitua este texto pelo endereço, horário e WhatsApp da loja.<br>© <span id="yearNow"></span> VISION SERVIÇOS</footer>
+<script>
+const products = [
+ {name:"Pastilha de freio",cat:"Freios",condition:"Nova",desc:"Exemplo de cadastro. Informe marca, aplicação e código da peça.",price:"Sob consulta"},
+ {name:"Amortecedor",cat:"Suspensão",condition:"Nova",desc:"Exemplo de cadastro. Confirme modelo e ano do veículo.",price:"Sob consulta"},
+ {name:"Farol dianteiro",cat:"Iluminação",condition:"Usada",desc:"Exemplo de cadastro. Informe lado e estado de conservação.",price:"Sob consulta"},
+ {name:"Alternador",cat:"Elétrica",condition:"Usada",desc:"Exemplo de cadastro. Confirme compatibilidade e garantia.",price:"Sob consulta"},
+ {name:"Filtro de óleo",cat:"Filtros",condition:"Nova",desc:"Exemplo de cadastro. Informe marca e código compatível.",price:"Sob consulta"},
+ {name:"Peça de motor",cat:"Motor",condition:"Usada",desc:"Exemplo de cadastro. Informe a peça exata e aplicação.",price:"Sob consulta"}
+];
+let cart=[];
+function render(){const q=document.getElementById('search').value.toLowerCase(),c=document.getElementById('condition').value,k=document.getElementById('category').value;
+const list=products.filter(p=>(p.name+p.cat+p.desc).toLowerCase().includes(q)&&(!c||p.condition===c)&&(!k||p.cat===k));
+document.getElementById('products').innerHTML=list.length?list.map((p)=>`<article class="product"><div class="photo">🚗</div><div class="pbody"><span class="pill">${p.condition}</span><h3>${p.name}</h3><p>${p.desc}</p><div class="price">${p.price}</div><button onclick="add('${p.name.replace(/'/g,"\\'")}')">Adicionar ao orçamento</button></div></article>`).join(''):'<div class="empty">Nenhuma peça encontrada. Fale com nossa equipe para consultar.</div>';}
+function add(n){cart.push(n);document.getElementById('count').textContent=cart.length;}
+function checkout(){if(!cart.length){alert('Adicione uma peça ao orçamento primeiro.');return;}const phone='5543984279111';const msg='Olá! Quero consultar estas peças:%0A- '+cart.join('%0A- ')+'%0A%0AMeu carro: modelo, ano e versão: ';if(phone.startsWith('SEU_')){alert('WhatsApp configurado.');return;}window.open('https://wa.me/'+phone+'?text='+msg,'_blank');}
+const modelMap={'Fiat':['Argo','Cronos','Mobi','Palio','Punto','Siena','Strada','Toro','Uno'],'Chevrolet':['Agile','Celta','Corsa','Cruze','Onix','Prisma','S10','Spin','Tracker'],'Volkswagen':['Amarok','Fox','Gol','Golf','Jetta','Nivus','Polo','Saveiro','T-Cross','Voyage'],'Ford':['EcoSport','Fiesta','Focus','Ka','Ranger'],'Toyota':['Corolla','Etios','Hilux','Yaris'],'Honda':['Civic','City','Fit','HR-V'],'Hyundai':['HB20','Creta','Tucson'],'Renault':['Clio','Duster','Kwid','Logan','Sandero'],'Peugeot':['206','207','208','2008'],'Citroën':['Aircross','C3','C4'],'Nissan':['Frontier','Kicks','March','Versa'],'Jeep':['Compass','Renegade'],'Mitsubishi':['L200','Lancer','Outlander']};
+function updateModels(){const make=document.getElementById('make').value,sel=document.getElementById('model');sel.innerHTML='<option value="">Modelo</option>';(modelMap[make]||['Outro modelo']).forEach(m=>{const o=document.createElement('option');o.value=m;o.textContent=m;sel.appendChild(o);});}
+(function(){const y=document.getElementById('year');for(let n=new Date().getFullYear();n>=1980;n--){const o=document.createElement('option');o.value=n;o.textContent=n;y.appendChild(o);}})();
+function askVehicle(){const make=document.getElementById('make').value,model=document.getElementById('model').value,year=document.getElementById('year').value;if(!make||!model||!year){alert('Selecione a marca, o modelo e o ano do carro.');return;}const phone='5543984279111';const msg='Olá! Quero consultar peças para meu carro:%0AMarca: '+encodeURIComponent(make)+'%0AModelo: '+encodeURIComponent(model)+'%0AAno: '+encodeURIComponent(year)+'%0APeça que procuro: ';window.open('https://wa.me/'+phone+'?text='+msg,'_blank');}
+document.getElementById('yearNow').textContent=new Date().getFullYear();render();
+</script>
+</body></html>
